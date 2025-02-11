@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Väderapp</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Väderprognos</h1>
+
+    <!-- Formulär för att ange stad -->
+    <form method="post">
+        <input type="text" name="city" placeholder="Skriv en stad..." required>
+        <button type="submit">Hämta väder</button>
+    </form>
+
+
+    <!-- Visa senaste sökningar -->
+    {% if searches %}
+        <h2>Senaste sökningar</h2>
+        <ul>
+            {% for search in searches %}
+                <li>{{ search.city }} - {{ search.temperature }}°C ({{ search.description }})</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <!-- Visa väderdata om sökning gjorts -->
+    {% if weather %}
+        <h2>Väder i {{ weather.city }}</h2>
+        <p>Temperatur: {{ weather.temperature }}°C</p>
+        <p>Beskrivning: {{ weather.description }}</p>
+    {% endif %}
+</body>
+</html>
