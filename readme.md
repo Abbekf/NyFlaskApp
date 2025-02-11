@@ -8,7 +8,7 @@ Följ dessa steg för att installera och köra projektet lokalt:
 
 1. Klona detta repository:
     ```bash
-    git clone https://github.com/anvandarnamn/NyFlaskApp.git
+    git clone https://github.com/Abbekf/NyFlaskApp.git
     ```
 2. Navigera till projektets katalog:
     ```bash
