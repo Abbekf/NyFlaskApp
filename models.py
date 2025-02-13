@@ -1,9 +1,9 @@
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
-db = SQLAlchemy()
+db = SQLAlchemy() 
 
-# Skapar en klass för att representera tabellen Search i databasen
+# denna class sätter databasens struktur
 class Search(db.Model): 
     id = db.Column(db.Integer, primary_key=True) # Primärnyckel för tabellen
     city = db.Column(db.String(50), nullable=False) # Kolumn för stadens namn, får inte vara null

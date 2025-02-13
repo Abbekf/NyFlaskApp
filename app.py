@@ -7,7 +7,7 @@ from models import db, Search
 # Skapa en instans av Flask
 app = Flask(__name__)
 
-# Sätt upp en SQLite-databas 
+# Visar vart databasen ska skapas
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///weather.db"
 
 # kopplar ihop db med flask
@@ -15,7 +15,7 @@ db.init_app(app)
 
 # kollar om databasen finns, om inte skapas den. Annars görs ingenting
 with app.app_context(): 
-    db.create_all() 
+    db.create_all()  
 
 # Skapa en route för startsidan som kan hantera GET och POST requests
 @app.route('/', methods=['GET', 'POST']) 
@@ -28,7 +28,7 @@ def home():
         city = request.form.get('city') # hämtar staden användaren skrivit in
 
         if city: 
-            weather_data = get_weather(city) # hämtar väderdata för staden användaren skrivit in
+            weather_data = get_weather(city) # har användaren skrivit in en stad så hämtar vi väderdata för staden
 
             if weather_data: 
                 new_search = Search( # skapar en ny sökning i databasen så att vi kan spara den
